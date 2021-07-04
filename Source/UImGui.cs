@@ -101,6 +101,8 @@ namespace UImGui
 		private void Awake()
 		{
 			_context = UImGuiUtility.CreateContext();
+			ImPlotNET.ImPlot.CreateContext();
+			ImPlotNET.ImPlot.SetImGuiContext(_context.Value);
 		}
 
 		private void OnDestroy()
