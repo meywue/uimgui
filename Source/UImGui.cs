@@ -101,8 +101,15 @@ namespace UImGui
 		private void Awake()
 		{
 			_context = UImGuiUtility.CreateContext();
+
 			ImPlotNET.ImPlot.CreateContext();
 			ImPlotNET.ImPlot.SetImGuiContext(_context.Value);
+
+			unsafe
+			{
+				imnodesNET.imnodes.CreateContext();
+				imnodesNET.imnodes.SetImGuiContext(_context.Value);
+			}
 		}
 
 		private void OnDestroy()
@@ -226,6 +233,7 @@ namespace UImGui
 			_context.TextureManager.PrepareFrame(io);
 			_platform.PrepareFrame(io, _camera.pixelRect);
 			ImGui.NewFrame();
+			//ImGuizmo.BeginFrame();
 			Constants.PrepareFrameMarker.End();
 
 			Constants.LayoutMarker.Begin(this);
