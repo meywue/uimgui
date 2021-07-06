@@ -9,23 +9,23 @@ namespace UImGui.Platform
 	internal interface IPlatform
 	{
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="io"></param>
 		/// <returns></returns>
 		bool Initialize(ImGuiIOPtr io, UIOConfig config, string platformName);
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="io"></param>
 		void Shutdown(ImGuiIOPtr io);
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="io"></param>
 		/// <param name="displayRect"></param>
-		void PrepareFrame(ImGuiIOPtr io, Rect displayRect);
+		void PrepareFrame(ImGuiIOPtr io, Rect displayRect, bool enableInput);
 	}
 }

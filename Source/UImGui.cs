@@ -29,6 +29,10 @@ namespace UImGui
 		[SerializeField]
 		private InputType _platformType = InputType.InputManager;
 
+		[SerializeField]
+		private bool _enableInput;
+
+
 		[Tooltip("Null value uses default imgui.ini file.")]
 		[SerializeField]
 		private IniSettingsAsset _iniSettings = null;
@@ -218,7 +222,7 @@ namespace UImGui
 
 			Constants.PrepareFrameMarker.Begin(this);
 			_context.TextureManager.PrepareFrame(io);
-			_platform.PrepareFrame(io, _camera.pixelRect);
+			_platform.PrepareFrame(io, _camera.pixelRect, _enableInput);
 			ImGui.NewFrame();
 			Constants.PrepareFrameMarker.End();
 
@@ -262,6 +266,11 @@ namespace UImGui
 			_platform?.Shutdown(io);
 			_platform = platform;
 			_platform?.Initialize(io, _initialConfiguration, "Unity " + _platformType.ToString());
+		}
+
+		public void SetEnableInput(bool enableInput)
+		{
+			_enableInput = enableInput;
 		}
 	}
 }
