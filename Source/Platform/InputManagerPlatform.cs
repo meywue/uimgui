@@ -35,9 +35,9 @@ namespace UImGui.Platform
 			return true;
 		}
 
-		public override void PrepareFrame(ImGuiIOPtr io, Rect displayRect)
+		public override void PrepareFrame(ImGuiIOPtr io, Rect displayRect, bool enableInput)
 		{
-			base.PrepareFrame(io, displayRect);
+			base.PrepareFrame(io, displayRect, enableInput);
 
 			UpdateKeyboard(io);
 			UpdateMouse(io);

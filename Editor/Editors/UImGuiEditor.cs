@@ -15,6 +15,7 @@ namespace UImGui.Editor
 		private SerializedProperty _renderFeature;
 		private SerializedProperty _renderer;
 		private SerializedProperty _platform;
+		private SerializedProperty _enableInput;
 		private SerializedProperty _initialConfiguration;
 		private SerializedProperty _fontAtlasConfiguration;
 		private SerializedProperty _iniSettings;
@@ -44,6 +45,7 @@ namespace UImGui.Editor
 			EditorGUILayout.PropertyField(_camera);
 			EditorGUILayout.PropertyField(_renderer);
 			EditorGUILayout.PropertyField(_platform);
+			EditorGUILayout.PropertyField(_enableInput);
 			EditorGUILayout.PropertyField(_initialConfiguration);
 			EditorGUILayout.PropertyField(_fontAtlasConfiguration);
 			EditorGUILayout.PropertyField(_iniSettings);
@@ -73,6 +75,7 @@ namespace UImGui.Editor
 			_renderFeature = serializedObject.FindProperty("_renderFeature");
 			_renderer = serializedObject.FindProperty("_rendererType");
 			_platform = serializedObject.FindProperty("_platformType");
+			_enableInput = serializedObject.FindProperty("_enableInput");
 			_initialConfiguration = serializedObject.FindProperty("_initialConfiguration");
 			_fontAtlasConfiguration = serializedObject.FindProperty("_fontAtlasConfiguration");
 			_iniSettings = serializedObject.FindProperty("_iniSettings");
