@@ -58,10 +58,13 @@ namespace UImGui.Platform
 		{
 			base.PrepareFrame(io, displayRect, enableInput);
 
-			UpdateKeyboard(io, Keyboard.current);
-			UpdateMouse(io, Mouse.current);
-			UpdateCursor(io, ImGui.GetMouseCursor());
-			UpdateGamepad(io, Gamepad.current);
+			if (enableInput)
+			{
+				UpdateKeyboard(io, Keyboard.current);
+				UpdateMouse(io, Mouse.current);
+				UpdateCursor(io, ImGui.GetMouseCursor());
+				UpdateGamepad(io, Gamepad.current);
+			}
 		}
 
 		private static void UpdateMouse(ImGuiIOPtr io, Mouse mouse)

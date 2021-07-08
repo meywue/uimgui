@@ -39,9 +39,12 @@ namespace UImGui.Platform
 		{
 			base.PrepareFrame(io, displayRect, enableInput);
 
-			UpdateKeyboard(io);
-			UpdateMouse(io);
-			UpdateCursor(io, ImGui.GetMouseCursor());
+			if (enableInput)
+			{
+				UpdateKeyboard(io);
+				UpdateMouse(io);
+				UpdateCursor(io, ImGui.GetMouseCursor());
+			}
 		}
 
 		private void SetupKeyboard(ImGuiIOPtr io)
