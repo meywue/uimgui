@@ -10,8 +10,14 @@
         Cull Off ZWrite On ZTest Always
         Blend SrcAlpha OneMinusSrcAlpha
 
+        
         Pass
         {
+            PackageRequirements
+            {
+                "com.unity.render-pipelines.universal"
+                "unity" : "2020.1"
+            }
             Name "DEARIMGUI PROCEDURAL URP"
 
             HLSLPROGRAM
@@ -80,8 +86,14 @@
         Cull Off ZWrite On ZTest Always
         Blend SrcAlpha OneMinusSrcAlpha
 
+        
         Pass
         {
+            PackageRequirements
+            {
+                "com.unity.render-pipelines.high-definition"
+                "unity" : "2020.1"
+            }
             Name "DEARIMGUI HDRP"
 
             HLSLPROGRAM

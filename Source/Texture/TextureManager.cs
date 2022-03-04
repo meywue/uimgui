@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UImGui.Assets;
+using UImGui.Events;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
@@ -101,7 +102,7 @@ namespace UImGui.Texture
 			return id;
 		}
 
-		public void BuildFontAtlas(ImGuiIOPtr io, in FontAtlasConfigAsset settings)
+		public void BuildFontAtlas(ImGuiIOPtr io, in FontAtlasConfigAsset settings, FontInitializerEvent custom)
 		{
 			if (io.Fonts.IsBuilt())
 			{
@@ -115,7 +116,15 @@ namespace UImGui.Texture
 
 			if (settings == null)
 			{
-				io.Fonts.AddFontDefault();
+				if (custom.GetPersistentEventCount() > 0)
+				{
+					custom.Invoke(io);
+				}
+				else
+				{
+					io.Fonts.AddFontDefault();
+				}
+
 				io.Fonts.Build();
 				return;
 			}
